@@ -55,6 +55,6 @@ app.delete('/books/:id', async (req, res) => {
 // Start the server and initialize sample books
 
 app.listen(port, async () => {
-    console.log(`Server running on port ${PORT}`);
+    console.log(`Server running on port ${port}`);
     await initializeBooks();  // Insert sample books if database is empty
 });
