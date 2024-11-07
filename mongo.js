@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // MongoDB URI (replace with your actual connection string if needed)
-const MONGODB_URI = 'mongodb+srv://subbareddymeruva97:<db_password>fgWcX2DieKskziOT.x6665.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = 'mongodb+srv://subbareddymeruva97:fgWcX2DieKskziOT@cluster0.x6665.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Connect to MongoDB (no need for useNewUrlParser and useUnifiedTopology)
 mongoose.connect(MONGODB_URI)
