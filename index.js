@@ -1,6 +1,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const { Book } = require('./mongo');  // Ensure this points to your MongoDB connection and Book model
+let port=process.env.PORT||3000;
 
 const app = express();
 app.use(express.json());
@@ -52,8 +53,8 @@ app.delete('/books/:id', async (req, res) => {
 });
 
 // Start the server and initialize sample books
-const PORT = 3000;
-app.listen(PORT, async () => {
+
+app.listen(port, async () => {
     console.log(`Server running on port ${PORT}`);
     await initializeBooks();  // Insert sample books if database is empty
 });
