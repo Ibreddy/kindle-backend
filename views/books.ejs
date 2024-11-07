@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books List</title>
+</head>
+<body>
+    <h1>Books List</h1>
+    <ul>
+        <% books.forEach(function(book) { %>
+            <li>
+               
+                <h2><%= book.title %></h2>
+                <img src="<%= book.image %>" alt="<%= book.title %>" width="200">
+                <p><%= book.summary %></p>
+                <p><strong>Author:</strong> <%= book.author %></p>
+                <p><strong>Genre:</strong> <%= book.genre %></p>
+                <p><strong>Published Year:</strong> <%= book.publishedYear %></p>
+                <button onclick="deleteBook('<%= book._id %>')">Delete</button>
+            </li>
+        <% }) %>
+    </ul>
+
+    <script>
+       
+        async function deleteBook(bookId) {
+            try {
+                const response = await fetch(`/books/${bookId}`, {
+                    method: 'DELETE'
+                });
+                if (response.ok) {
+                    alert("Book deleted successfully!");
+                    location.reload();  // Reload the page to update the book list
+                } else {
+                    alert("Error deleting book.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+            }
+        }
+    </script>
+</body>
+</html>
